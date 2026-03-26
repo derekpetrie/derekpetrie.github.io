@@ -1,36 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Brief — Redirecting...</title>
-  <script>
-    // Redirect to today's brief
-    const today = new Date();
-    const yyyy = today.getFullYear();
-    const mm = String(today.getMonth() + 1).padStart(2, '0');
-    const dd = String(today.getDate()).padStart(2, '0');
-    const url = `${yyyy}-${mm}-${dd}.html`;
-    // Try today first, fall back to finding the latest
-    fetch(url, { method: 'HEAD' })
-      .then(r => {
-        if (r.ok) {
-          window.location.replace(url);
-        } else {
-          // Today's not ready yet — try yesterday
-          const yesterday = new Date(today);
-          yesterday.setDate(yesterday.getDate() - 1);
-          const y2 = yesterday.getFullYear();
-          const m2 = String(yesterday.getMonth() + 1).padStart(2, '0');
-          const d2 = String(yesterday.getDate()).padStart(2, '0');
-          window.location.replace(`${y2}-${m2}-${d2}.html`);
-        }
-      })
-      .catch(() => {
-        document.body.innerHTML = '<div style="color:#9ca3af;font-family:Georgia,serif;text-align:center;margin-top:40vh;"><h1 style="color:#d4a853;">Daily Brief</h1><p>No briefs available yet. Check back tomorrow at 5am MDT.</p></div>';
-        document.body.style.background = '#0a0a0a';
-      });
-  </script>
-</head>
-<body style="background:#0a0a0a;"></body>
-</html>
+<html><head><meta charset="UTF-8">
+<meta http-equiv="refresh" content="0;url=2026-03-26.html">
+<script>window.location.replace("2026-03-26.html");</script>
+</head><body style="background:#0a0a0a"></body></html>
