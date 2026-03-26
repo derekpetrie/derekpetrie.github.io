@@ -1,7 +1,7 @@
 #!/bin/bash
-# Deploy daily brief to GitHub Pages via GitHub API (no git push needed)
+# Deploy daily brief to GitHub Pages via GitHub Contents API
 # Usage: ./deploy.sh YYYY-MM-DD
-# Requires: gh cli authenticated, or GITHUB_TOKEN env var
+# Uses PAT for authentication (remote trigger env has read-only integration token)
 
 set -e
 
@@ -14,6 +14,12 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO="derekpetrie/derekpetrie.github.io"
 BRIEF_FILE="$SCRIPT_DIR/${DATE}.html"
 INDEX_FILE="$SCRIPT_DIR/index.html"
+PAT="${GITHUB_PAT:-}"
+
+if [ -z "$PAT" ]; then
+  echo "Error: GITHUB_PAT not set"
+  exit 1
+fi
 
 if [ ! -f "$BRIEF_FILE" ]; then
   echo "Error: $BRIEF_FILE not found. Run build.sh first."
@@ -22,7 +28,7 @@ fi
 
 echo "Deploying $DATE brief to $REPO..."
 
-# Function to upload a file via GitHub Contents API
+# Upload a file via GitHub Contents API using PAT
 upload_file() {
   local local_path="$1"
   local repo_path="$2"
@@ -31,25 +37,36 @@ upload_file() {
   local content
   content=$(base64 < "$local_path" | tr -d '\n')
 
-  # Check if file exists (get its SHA for update)
+  # Check if file exists to get its SHA (needed for updates)
   local sha
-  sha=$(gh api "repos/$REPO/contents/$repo_path" --jq '.sha' 2>/dev/null || echo "")
+  sha=$(curl -s -H "Authorization: token $PAT" \
+    "https://api.github.com/repos/$REPO/contents/$repo_path" \
+    | grep -o '"sha":"[^"]*"' | head -1 | cut -d'"' -f4 || echo "")
 
+  local payload
   if [ -n "$sha" ]; then
-    gh api "repos/$REPO/contents/$repo_path" \
-      --method PUT \
-      -f message="$message" \
-      -f content="$content" \
-      -f sha="$sha" \
-      --silent
+    payload="{\"message\":\"$message\",\"content\":\"$content\",\"sha\":\"$sha\"}"
   else
-    gh api "repos/$REPO/contents/$repo_path" \
-      --method PUT \
-      -f message="$message" \
-      -f content="$content" \
-      --silent
+    payload="{\"message\":\"$message\",\"content\":\"$content\"}"
   fi
-  echo "  Uploaded: $repo_path"
+
+  local response
+  response=$(curl -s -w "\n%{http_code}" -X PUT \
+    -H "Authorization: token $PAT" \
+    -H "Content-Type: application/json" \
+    "https://api.github.com/repos/$REPO/contents/$repo_path" \
+    -d "$payload")
+
+  local http_code
+  http_code=$(echo "$response" | tail -1)
+
+  if [ "$http_code" = "200" ] || [ "$http_code" = "201" ]; then
+    echo "  Uploaded: $repo_path ($http_code)"
+  else
+    echo "  FAILED: $repo_path ($http_code)"
+    echo "$response" | head -5
+    return 1
+  fi
 }
 
 # Upload the brief HTML
