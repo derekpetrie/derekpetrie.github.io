@@ -6,8 +6,8 @@ import L from 'leaflet'
 interface Trail {
   id: number
   name: string
-  coordinates: [number, number]
-  gpx_points: [number, number][]
+  coordinates: number[]
+  gpx_points: (number[] | [number, number])[]
 }
 
 const startIcon = L.icon({
