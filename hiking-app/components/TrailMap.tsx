@@ -28,16 +28,17 @@ export default function TrailMap({ trail }: { trail: Trail }) {
     return null
   }
 
-  const bounds = trail.gpx_points.reduce(
+  const bounds: [number[], number[]] = trail.gpx_points.reduce(
     (acc, point) => {
+      const p = Array.isArray(point) ? point : [point[0], point[1]]
       return [
-        [Math.min(acc[0][0], point[0]), Math.min(acc[0][1], point[1])],
-        [Math.max(acc[1][0], point[0]), Math.max(acc[1][1], point[1])],
+        [Math.min(acc[0][0], p[0] as number), Math.min(acc[0][1], p[1] as number)],
+        [Math.max(acc[1][0], p[0] as number), Math.max(acc[1][1], p[1] as number)],
       ]
     },
     [
-      [trail.gpx_points[0][0], trail.gpx_points[0][1]],
-      [trail.gpx_points[0][0], trail.gpx_points[0][1]],
+      [trail.gpx_points[0][0] as number, trail.gpx_points[0][1] as number],
+      [trail.gpx_points[0][0] as number, trail.gpx_points[0][1] as number],
     ]
   )
 
