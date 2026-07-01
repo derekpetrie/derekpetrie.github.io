@@ -1,6 +1,6 @@
 # Wind River Range Hiking App
 
-A modern web application for exploring trails in the Wind River Range with topographic maps, detailed trail information, user reviews, and GPX export functionality.
+A modern web application for exploring trails in the Wind River Range with topographic maps, detailed trail information, user reviews, and GPX export functionality. Works on desktop and iPhone!
 
 ## Features
 
@@ -11,6 +11,19 @@ A modern web application for exploring trails in the Wind River Range with topog
 - **GPX Export**: Download trail data as GPX files for offline navigation
 - **Interactive Maps**: Click on map markers to view trail details
 - **Responsive Design**: Works on desktop and mobile devices
+- **iPhone App**: Install as standalone app on your home screen
+- **Offline Support**: Service worker caches data for offline access
+- **Progressive Web App**: Works like a native app
+
+## Deploy to iPhone
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+### Quick Start for iPhone
+1. Deploy to Vercel (see DEPLOYMENT.md)
+2. Open app URL in Safari on iPhone
+3. Tap Share > Add to Home Screen
+4. Use the app from your home screen
 
 ## Tech Stack
 
@@ -20,8 +33,12 @@ A modern web application for exploring trails in the Wind River Range with topog
 - **Maps Tiles**: CartoDB Voyager
 - **Language**: TypeScript
 - **Package Manager**: npm
+- **Deployment**: Vercel
+- **PWA**: Service Worker + Web Manifest
 
-## Installation
+## Local Development
+
+### Installation
 
 ```bash
 # Install dependencies
@@ -33,7 +50,7 @@ npm run dev
 # Open browser to http://localhost:3000
 ```
 
-## Building
+### Build for Production
 
 ```bash
 # Build for production
@@ -41,6 +58,16 @@ npm run build
 
 # Start production server
 npm start
+```
+
+### Test on iPhone (Local Network)
+```bash
+# Get your machine's local IP
+ipconfig getifaddr en0  # macOS
+# or
+hostname -I  # Linux
+
+# Then open http://[YOUR-IP]:3000 on iPhone on same WiFi
 ```
 
 ## Project Structure

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <rect width="512" height="512" fill="#059669"/>
+  <g transform="translate(256, 256)">
+    <!-- Mountain peaks -->
+    <polygon points="-150,-80 -50,80 50,-40 150,80" fill="white" opacity="0.9"/>
+    <polygon points="-80,-60 0,60 80,-20 120,80" fill="white" opacity="0.8"/>
+    <!-- Trail marker -->
+    <circle cx="20" cy="100" r="30" fill="white"/>
+    <text x="20" y="115" font-size="40" font-weight="bold" fill="#059669" text-anchor="middle">🥾</text>
+  </g>
+</svg>
