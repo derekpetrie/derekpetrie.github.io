@@ -32,7 +32,7 @@ export default function PWAInstaller() {
     window.addEventListener('appinstalled', handleAppInstalled)
 
     // Check if app is running as PWA
-    if (window.navigator.standalone) {
+    if ((window.navigator as any).standalone) {
       setInstalled(true)
     }
 
