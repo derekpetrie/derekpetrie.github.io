@@ -15,7 +15,7 @@ const ReviewForm = dynamic(() => import('@/components/ReviewForm'), {
 
 export default function TrailPage({ params }: { params: { id: string } }) {
   const trail = trails.trails.find((t) => t.id === parseInt(params.id))
-  const [reviews, setReviews] = useState(trail?.reviews || [])
+  const [reviews, setReviews] = useState<any[]>(trail?.reviews || [])
   const [showReviewForm, setShowReviewForm] = useState(false)
 
   if (!trail) {
