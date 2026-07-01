@@ -26,3 +26,12 @@ Update this file when project status changes. The daily brief agent reads this f
 - **Description:** "Strava of fun outdoor activities" — direction unclear
 - **Key decisions:** Product vision, app architecture, which sport first
 - **Blockers:** No strategic clarity yet
+
+## Wind River Hiking App
+- **Phase:** MVP Complete
+- **Description:** Interactive hiking guide for Wind River Range with topographic maps, trails, reviews, and GPX export
+- **Features:** 5 featured trails, interactive Leaflet maps, user reviews with ratings, downloadable GPX files, responsive design
+- **Tech Stack:** Next.js 14, React, Tailwind CSS, TypeScript, Leaflet
+- **Launch target:** Deployed
+- **Key decisions:** CartoDB tiles for topographic maps, client-side review storage
+- **Blockers:** None - ready for enhancement with user accounts and photo upload

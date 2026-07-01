@@ -1,0 +1,108 @@
+{
+  "trails": [
+    {
+      "id": 1,
+      "name": "Cirque of the Towers",
+      "distance": 19.2,
+      "elevation_gain": 2800,
+      "difficulty": "Hard",
+      "description": "An iconic backpacking route featuring granite peaks, mountain lakes, and stunning alpine scenery. The trail ascends through mixed forest and alpine meadows to reach one of the most dramatic cirques in the Wind River Range.",
+      "location": "Popo Agie Wilderness",
+      "coordinates": [42.8474, -108.8936],
+      "images": [
+        "/trails/cirque-1.jpg",
+        "/trails/cirque-2.jpg",
+        "/trails/cirque-3.jpg"
+      ],
+      "gpx_points": [
+        [42.8474, -108.8936],
+        [42.8520, -108.8900],
+        [42.8580, -108.8850],
+        [42.8650, -108.8800]
+      ],
+      "reviews": []
+    },
+    {
+      "id": 2,
+      "name": "Titcomb Basin",
+      "distance": 16.0,
+      "elevation_gain": 2500,
+      "difficulty": "Hard",
+      "description": "A stunning high alpine basin with turquoise lakes and views of numerous peaks including Mount Jackson and Fremont Peak. Known for excellent backcountry camping and fishing.",
+      "location": "Wind River High Country",
+      "coordinates": [42.8674, -109.1636],
+      "images": [
+        "/trails/titcomb-1.jpg",
+        "/trails/titcomb-2.jpg"
+      ],
+      "gpx_points": [
+        [42.8674, -109.1636],
+        [42.8700, -109.1600],
+        [42.8750, -109.1550],
+        [42.8820, -109.1480]
+      ],
+      "reviews": []
+    },
+    {
+      "id": 3,
+      "name": "Lonesome Lake",
+      "distance": 12.5,
+      "elevation_gain": 1500,
+      "difficulty": "Moderate",
+      "description": "A scenic day hike or overnight trip to an alpine lake surrounded by granite peaks. The trail offers great views of the Wind River Range and opportunities for fishing.",
+      "location": "Wind River Wilderness",
+      "coordinates": [42.8200, -108.9700],
+      "images": [
+        "/trails/lonesome-1.jpg"
+      ],
+      "gpx_points": [
+        [42.8200, -108.9700],
+        [42.8250, -108.9650],
+        [42.8320, -108.9580],
+        [42.8400, -108.9500]
+      ],
+      "reviews": []
+    },
+    {
+      "id": 4,
+      "name": "Indian Basin",
+      "distance": 18.0,
+      "elevation_gain": 2200,
+      "difficulty": "Hard",
+      "description": "Remote alpine basin offering solitude and exceptional wilderness experience. Fewer crowds than other popular Wind River trails, with stunning vistas and abundant wildlife.",
+      "location": "Popo Agie Wilderness",
+      "coordinates": [42.8250, -108.8400],
+      "images": [
+        "/trails/indian-1.jpg",
+        "/trails/indian-2.jpg"
+      ],
+      "gpx_points": [
+        [42.8250, -108.8400],
+        [42.8300, -108.8350],
+        [42.8380, -108.8250],
+        [42.8480, -108.8150]
+      ],
+      "reviews": []
+    },
+    {
+      "id": 5,
+      "name": "Paintbrush Canyon",
+      "distance": 14.0,
+      "elevation_gain": 1800,
+      "difficulty": "Moderate",
+      "description": "Beautiful canyon hike with colorful rock formations and wildflower meadows. Named for the vibrant paintbrush flowers that bloom in summer.",
+      "location": "Wind River Range",
+      "coordinates": [42.8600, -108.9200],
+      "images": [
+        "/trails/paintbrush-1.jpg"
+      ],
+      "gpx_points": [
+        [42.8600, -108.9200],
+        [42.8650, -108.9150],
+        [42.8720, -108.9070],
+        [42.8800, -108.8980]
+      ],
+      "reviews": []
+    }
+  ]
+}
